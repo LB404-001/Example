@@ -108,6 +108,6 @@ namespace Work1
     {
         public static MeleeWeapon Hand = new MeleeWeapon("Hand", 0, 1, new BitmapImage(new Uri("Textures\\Items\\Weapons\\Hand.png", UriKind.Relative)));
         public static MeleeWeapon Knife = new MeleeWeapon("Knife", 1, 5, new BitmapImage(new Uri("Textures\\Items\\Weapons\\Knife.png", UriKind.Relative)));
-        public static ClipWeapon Pistol = new ClipWeapon("Pistol", 2, 15, 2, 5, new BitmapImage(new Uri("Textures\\Items\\Weapons\\Pistol.png", UriKind.Relative)));
+        public static ClipWeapon Pistol = new ClipWeapon("Pistol", 2, 15, 5, 5, new BitmapImage(new Uri("Textures\\Items\\Weapons\\Pistol.png", UriKind.Relative)));
     }
 }

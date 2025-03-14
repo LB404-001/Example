@@ -20,3 +20,4 @@ F:\Projects\Work1\obj\Debug\net8.0-windows\Work1.genruntimeconfig.cache
 F:\Projects\Work1\obj\Debug\net8.0-windows\ref\Work1.dll
 F:\Projects\Work1\obj\Debug\net8.0-windows\Inventory.g.cs
 F:\Projects\Work1\obj\Debug\net8.0-windows\Inventory.baml
+F:\Projects\Work1\obj\Debug\net8.0-windows\Work1.sourcelink.json

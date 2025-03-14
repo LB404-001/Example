@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Work1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="580" Width="960" KeyDown="Window_KeyDown">
+        Title="MainWindow" Height="auto" Width="auto" KeyDown="Window_KeyDown" SizeToContent="WidthAndHeight">
     <Grid>
-        <Canvas Name="Screen" Background="Transparent" SnapsToDevicePixels="True" MouseDown="Screen_MouseDown" MouseMove="Screen_MouseMove" Height="564" VerticalAlignment="Top" MouseEnter="Screen_MouseEnter">
+        <Canvas Name="Screen" Background="Transparent" SnapsToDevicePixels="True" MouseDown="Screen_MouseDown" MouseMove="Screen_MouseMove" Height="640" Width="800" VerticalAlignment="Top" MouseEnter="Screen_MouseEnter" Margin="0,0,0,0">
             
         </Canvas>
 

@@ -109,7 +109,9 @@ namespace Work1
         public void DistantAttack(MouseEventArgs e, Canvas screen)
         {
             var mp = e.GetPosition(screen);
-            Point orientation = new Point(Convert.ToInt32(mp.X / Settings.zoom) / Defaults.TileSize - this.Position.X, Convert.ToInt32(mp.Y / Settings.zoom) / Defaults.TileSize - this.Position.Y);
+            double dx = mp.X - screen.Width / 2;
+            double dy = mp.Y - screen.Height / 2;
+            Point orientation = new Point(Convert.ToInt32(dx / Defaults.TileSize / Settings.zoom), Convert.ToInt32(dy / Defaults.TileSize / Settings.zoom));
             //var a = _weapon.GetType();
             if (_weapon.GetType().Name == "ClipWeapon")
             {
