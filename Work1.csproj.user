@@ -7,11 +7,23 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="DeathWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Equipment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Inventory.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="DeathWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Equipment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Inventory.xaml">
       <SubType>Designer</SubType>
     </Page>

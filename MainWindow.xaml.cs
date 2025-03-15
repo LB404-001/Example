@@ -50,6 +50,10 @@ namespace Work1
                 case Key.X:
                     player.Interact(new System.Drawing.Point(player.Position.X + player.Orientation.X, player.Position.Y + player.Orientation.Y));
                     break;
+                case Key.I:
+                    EquipmentWindow eqw = new EquipmentWindow();
+                    eqw.ShowDialog();
+                    break;
             }
         }
 

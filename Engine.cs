@@ -200,137 +200,141 @@ namespace Work1
 
         public static async void Render(Canvas screen)
         {
-            if (!IsGameOver)
+            while (true)
             {
                 Point center = new Point(screen.Width / 2, screen.Height / 2);
                 Point zero_point = new Point(center.X - Settings.render_distace * Defaults.TileSize * Settings.zoom, center.Y - Settings.render_distace * Defaults.TileSize * Settings.zoom);
-                while (true)
+                Player pl = (Player)_current_scene.Entities.Find(x => x.Id == 0)!;
+                //Render world
+                screen.Children.Clear();
+                var world = Engine._current_scene.World;
+                for (int i = pl.Position.X - Settings.render_distace; i < world.Length && i < pl.Position.X + Settings.render_distace; i++)
                 {
-                    Player pl = (Player)_current_scene.Entities.Find(x => x.Id == 0)!;
-                    //Render world
-                    screen.Children.Clear();
-                    var world = Engine._current_scene.World;
-                    for (int i = pl.Position.X - Settings.render_distace; i < world.Length && i < pl.Position.X + Settings.render_distace; i++)
+                    if (i >= 0)
                     {
-                        if (i >= 0)
+                        for (int j = pl.Position.Y - Settings.render_distace; j < world[i].Length && j < pl.Position.Y + Settings.render_distace; j++)
                         {
-                            for (int j = pl.Position.Y - Settings.render_distace; j < world[i].Length && j < pl.Position.Y + Settings.render_distace; j++)
+                            if (j >= 0)
                             {
-                                if (j >= 0)
+                                Rectangle tile = new Rectangle()
                                 {
-                                    Rectangle tile = new Rectangle()
+                                    Width = Defaults.TileSize * Settings.zoom,
+                                    Height = Defaults.TileSize * Settings.zoom,
+                                    Fill = new ImageBrush(world[i][j].Ground.Texture),
+                                    Stretch = Stretch.UniformToFill,
+                                    SnapsToDevicePixels = true
+
+                                };
+                                Canvas.SetZIndex(tile, 1);
+                                Canvas.SetLeft(tile, ((i - pl.Position.X) * Defaults.TileSize) * Settings.zoom + center.X - Defaults.TileSize * Settings.zoom / 2);
+                                Canvas.SetTop(tile, ((j - pl.Position.Y) * Defaults.TileSize) * Settings.zoom + center.Y - Defaults.TileSize * Settings.zoom / 2);
+
+                                tile.IsEnabled = false;
+
+                                screen.Children.Add(tile);
+
+                                if (world[i][j].Object != null)
+                                {
+                                    Rectangle obj = new Rectangle()
                                     {
                                         Width = Defaults.TileSize * Settings.zoom,
                                         Height = Defaults.TileSize * Settings.zoom,
-                                        Fill = new ImageBrush(world[i][j].Ground.Texture),
+                                        Fill = new ImageBrush(world[i][j].Object.Texture),
                                         Stretch = Stretch.UniformToFill,
                                         SnapsToDevicePixels = true
-
                                     };
-                                    Canvas.SetZIndex(tile, 1);
-                                    Canvas.SetLeft(tile, ((i - pl.Position.X) * Defaults.TileSize) * Settings.zoom + center.X - Defaults.TileSize * Settings.zoom / 2);
-                                    Canvas.SetTop(tile, ((j - pl.Position.Y) * Defaults.TileSize) * Settings.zoom + center.Y - Defaults.TileSize * Settings.zoom / 2);
+                                    Canvas.SetZIndex(obj, 1);
+                                    Canvas.SetLeft(obj, ((i - pl.Position.X) * Defaults.TileSize) * Settings.zoom + center.X - Defaults.TileSize * Settings.zoom / 2);
+                                    Canvas.SetTop(obj, ((j - pl.Position.Y) * Defaults.TileSize) * Settings.zoom + center.Y - Defaults.TileSize * Settings.zoom / 2);
 
                                     tile.IsEnabled = false;
 
-                                    screen.Children.Add(tile);
+                                    screen.Children.Add(obj);
+                                }
 
-                                    if (world[i][j].Object != null)
+                                if (world[i][j].Entity != null)
+                                {
+                                    Rectangle obj = new Rectangle()
                                     {
-                                        Rectangle obj = new Rectangle()
-                                        {
-                                            Width = Defaults.TileSize * Settings.zoom,
-                                            Height = Defaults.TileSize * Settings.zoom,
-                                            Fill = new ImageBrush(world[i][j].Object.Texture),
-                                            Stretch = Stretch.UniformToFill,
-                                            SnapsToDevicePixels = true
-                                        };
-                                        Canvas.SetZIndex(obj, 1);
-                                        Canvas.SetLeft(obj, ((i - pl.Position.X) * Defaults.TileSize) * Settings.zoom + center.X - Defaults.TileSize * Settings.zoom / 2);
-                                        Canvas.SetTop(obj, ((j - pl.Position.Y) * Defaults.TileSize) * Settings.zoom + center.Y - Defaults.TileSize * Settings.zoom / 2);
+                                        Width = Defaults.TileSize * Settings.zoom,
+                                        Height = Defaults.TileSize * Settings.zoom,
+                                        Fill = new ImageBrush(world[i][j].Entity.Texture),
+                                        Stretch = Stretch.UniformToFill,
+                                        SnapsToDevicePixels = true
+                                    };
+                                    Canvas.SetZIndex(obj, 1);
+                                    Canvas.SetLeft(obj, ((i - pl.Position.X) * Defaults.TileSize) * Settings.zoom + center.X - Defaults.TileSize * Settings.zoom / 2);
+                                    Canvas.SetTop(obj, ((j - pl.Position.Y) * Defaults.TileSize) * Settings.zoom + center.Y - Defaults.TileSize * Settings.zoom / 2);
 
-                                        tile.IsEnabled = false;
+                                    tile.IsEnabled = false;
 
-                                        screen.Children.Add(obj);
-                                    }
-
-                                    if (world[i][j].Entity != null)
-                                    {
-                                        Rectangle obj = new Rectangle()
-                                        {
-                                            Width = Defaults.TileSize * Settings.zoom,
-                                            Height = Defaults.TileSize * Settings.zoom,
-                                            Fill = new ImageBrush(world[i][j].Entity.Texture),
-                                            Stretch = Stretch.UniformToFill,
-                                            SnapsToDevicePixels = true
-                                        };
-                                        Canvas.SetZIndex(obj, 1);
-                                        Canvas.SetLeft(obj, ((i - pl.Position.X) * Defaults.TileSize) * Settings.zoom + center.X - Defaults.TileSize * Settings.zoom / 2);
-                                        Canvas.SetTop(obj, ((j - pl.Position.Y) * Defaults.TileSize) * Settings.zoom + center.Y - Defaults.TileSize * Settings.zoom / 2);
-
-                                        tile.IsEnabled = false;
-
-                                        screen.Children.Add(obj);
-                                    }
+                                    screen.Children.Add(obj);
                                 }
                             }
                         }
                     }
-
-                    //Render Player
-                    
-                    Rectangle player = new Rectangle()
-                    {
-                        Width = 16 * Settings.zoom,
-                        Height = 16 * Settings.zoom,
-                        Fill = new ImageBrush(pl.Texture)
-                    };
-
-                    Canvas.SetZIndex(player, 3);
-                    Canvas.SetLeft(player, center.X - Defaults.TileSize * Settings.zoom / 2);
-                    Canvas.SetTop(player, center.Y - Defaults.TileSize * Settings.zoom / 2);
-
-                    screen.Children.Add(player);
-
-                    BitmapImage weaponTexture = pl.Weapon.Texture;
-
-                    Rectangle weapon = new Rectangle()
-                    {
-                        Width = weaponTexture.Width * Settings.zoom * 0.75,
-                        Height = weaponTexture.Height * Settings.zoom * 0.75,
-                        Fill = new ImageBrush(weaponTexture),
-                        RenderTransform = new RotateTransform(45)
-                    };
-                    Canvas.SetZIndex(weapon, 4);
-
-                    //var a = Mouse.GetPosition(screen);
-                    System.Windows.Point b = Mouse.GetPosition(screen);
-                    double x = b.X - center.X;
-                    double y = b.Y - center.Y;
-                    weapon.RenderTransform = new RotateTransform((Math.Atan2(y, x)) * 180 / Math.PI);
-                    
-
-                    Canvas.SetLeft(weapon, (0.0) * Defaults.TileSize * Settings.zoom + center.X);
-                    Canvas.SetTop(weapon, (0.0) * Defaults.TileSize * Settings.zoom + center.Y);
-
-                    screen.Children.Add(weapon);
-
-                    Rectangle el = new Rectangle()
-                    {
-                        Width = Defaults.TileSize * Settings.zoom,
-                        Height = Defaults.TileSize * Settings.zoom,
-                        Fill = new SolidColorBrush(Colors.Red)
-                    };
-
-                    Canvas.SetZIndex(el, 5);
-
-                    Canvas.SetLeft(el, Defaults.TileSize * Settings.zoom);
-                    Canvas.SetTop(el, 0);
-
-                    screen.Children.Add(el);
-
-                    await Task.Delay(10);
                 }
+
+                //Render Player
+
+                Rectangle player = new Rectangle()
+                {
+                    Width = 16 * Settings.zoom,
+                    Height = 16 * Settings.zoom,
+                    Fill = new ImageBrush(pl.Texture)
+                };
+
+                Canvas.SetZIndex(player, 3);
+                Canvas.SetLeft(player, center.X - Defaults.TileSize * Settings.zoom / 2);
+                Canvas.SetTop(player, center.Y - Defaults.TileSize * Settings.zoom / 2);
+
+                screen.Children.Add(player);
+
+                BitmapImage weaponTexture = pl.Weapon.Texture;
+
+                Rectangle weapon = new Rectangle()
+                {
+                    Width = weaponTexture.Width * Settings.zoom * 0.75,
+                    Height = weaponTexture.Height * Settings.zoom * 0.75,
+                    Fill = new ImageBrush(weaponTexture),
+                    RenderTransform = new RotateTransform(45)
+                };
+                Canvas.SetZIndex(weapon, 4);
+
+                //var a = Mouse.GetPosition(screen);
+                System.Windows.Point b = Mouse.GetPosition(screen);
+                double x = b.X - center.X;
+                double y = b.Y - center.Y;
+                weapon.RenderTransform = new RotateTransform((Math.Atan2(y, x)) * 180 / Math.PI);
+
+
+                Canvas.SetLeft(weapon, (0.0) * Defaults.TileSize * Settings.zoom + center.X);
+                Canvas.SetTop(weapon, (0.0) * Defaults.TileSize * Settings.zoom + center.Y);
+
+                screen.Children.Add(weapon);
+
+                Rectangle el = new Rectangle()
+                {
+                    Width = Defaults.TileSize * Settings.zoom,
+                    Height = Defaults.TileSize * Settings.zoom,
+                    Fill = new SolidColorBrush(Colors.Red)
+                };
+
+                Canvas.SetZIndex(el, 5);
+
+                Canvas.SetLeft(el, Defaults.TileSize * Settings.zoom);
+                Canvas.SetTop(el, 0);
+
+                screen.Children.Add(el);
+
+                if (IsGameOver)
+                {
+                    DeathWindow dw = new DeathWindow();
+                    dw.ShowDialog();
+                    Environment.Exit(0);
+                }
+
+                await Task.Delay(10);
             }
         }
     }

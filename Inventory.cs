@@ -44,7 +44,7 @@ namespace Work1
         public Inventory()
         {
             items = new List<Item>(0);
-            items.Add(new Item("test", 1, new System.Windows.Media.Imaging.BitmapImage(new Uri("Textures\\System\\NULL.png", UriKind.Relative))));
+            //items.Add(new Item("test", 1, new System.Windows.Media.Imaging.BitmapImage(new Uri("Textures\\System\\NULL.png", UriKind.Relative))));
         }
     }
 

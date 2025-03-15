@@ -201,6 +201,7 @@ namespace Work1
             this.Position = position;
             this.HP = 6;
             this.inventory = new Inventory();
+            inventory.Items.Add(this.Weapon);
         }
     }
 }
