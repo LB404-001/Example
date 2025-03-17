@@ -25,6 +25,8 @@ namespace Work1
         protected double _range;
         protected int _DistanceDamage = 1;
 
+        public abstract void Reload();
+
         public DistanceWeapon(string name, int id, int damage, double range, BitmapImage texture) : base(name, id, 0, texture)
         {
             _DistanceDamage = damage;
@@ -36,50 +38,77 @@ namespace Work1
     {
         private int _maxAmmoCount;
         private int _currentAmmoCount;
+        private bool IsReloading = false;
+
+        public int AmmoCount
+        {
+            get { return _currentAmmoCount; }
+        }
+
+        public int MaxAmmoCount
+        {
+            get { return _maxAmmoCount; }
+
+        }
 
         public override void Use(Point Position, Point Orientation)
         {
-            if (_currentAmmoCount > 0)
+            if (!IsReloading)
             {
-                if (Math.Sqrt(Math.Pow(Convert.ToDouble(Orientation.X), 2) + Math.Pow(Convert.ToDouble(Orientation.Y), 2)) > _range)
+                if (_currentAmmoCount > 0)
                 {
-                    double der = Convert.ToDouble(Orientation.Y) / Convert.ToDouble(Orientation.X);
-                    double x;
-                    double y;
-                    if (Orientation.X == 0)
+                    if (Math.Sqrt(Math.Pow(Convert.ToDouble(Orientation.X), 2) + Math.Pow(Convert.ToDouble(Orientation.Y), 2)) > _range)
                     {
-                        x = 0;
-                        y = _range;
-                    }
-                    else
-                    {
-                        if (Orientation.Y == 0)
+                        double der = Convert.ToDouble(Orientation.Y) / Convert.ToDouble(Orientation.X);
+                        double x;
+                        double y;
+                        if (Orientation.X == 0)
                         {
-                            x = _range;
-                            y = 0;
+                            x = 0;
+                            y = _range;
                         }
                         else
                         {
-                            x = Math.Sqrt(Math.Pow(_range, 2) / (Math.Pow(der, 2) + 1));
-                            y = x * der;
+                            if (Orientation.Y == 0)
+                            {
+                                x = _range;
+                                y = 0;
+                            }
+                            else
+                            {
+                                x = Math.Sqrt(Math.Pow(_range, 2) / (Math.Pow(der, 2) + 1));
+                                y = x * der;
+                            }
+                        }
+                        Orientation = new Point(Convert.ToInt32(x), Convert.ToInt32(y));
+                    }
+                    Chunk targetChunk = Engine.Raycast(Position, new Point(Position.X + Orientation.X, Position.Y + Orientation.Y));
+                    if (targetChunk != null)
+                    {
+                        if (targetChunk.Entity != null)
+                        {
+                            Engine.Damage(targetChunk.Entity.Position.X, targetChunk.Entity.Position.Y, _DistanceDamage);
                         }
                     }
-                    Orientation = new Point(Convert.ToInt32(x), Convert.ToInt32(y));
+                    _currentAmmoCount -= 1;
                 }
-                Chunk targetChunk = Engine.Raycast(Position, new Point(Position.X + Orientation.X, Position.Y + Orientation.Y));
-                if (targetChunk != null)
+                else
                 {
-                    if (targetChunk.Entity != null)
-                    {
-                        Engine.Damage(targetChunk.Entity.Position.X, targetChunk.Entity.Position.Y, _DistanceDamage);
-                    }
+                    Reload();
                 }
-                _currentAmmoCount -= 1;
             }
-            else
-            {
+        }
 
+        public override async void Reload()
+        {
+            IsReloading = true;
+            while (_currentAmmoCount < _maxAmmoCount)
+            {
+                _currentAmmoCount++;
+                await Task.Delay(500);
             }
+            
+            IsReloading = false;
         }
 
         public ClipWeapon(string name, int id, int damage, double range, int maxAmmoCount, BitmapImage texture) : base(name, id, damage, range, texture)

@@ -19,7 +19,7 @@
             </Grid.RowDefinitions>
             <Label x:Name="PlayerNameLabel" Grid.Row="0" Grid.Column="0" Content="Player"/>
             <Label Grid.Row="0" Grid.Column="2" Content="Equipment"/>
-        <ListBox x:Name="InventoryItems" Margin="10,10,10,10" Grid.Row="1" Grid.Column="0">
+        <ListBox x:Name="InventoryItems" Margin="10,10,10,10" Grid.Row="1" Grid.Column="0" SelectionChanged="InventoryItems_SelectionChanged">
         </ListBox>
         <Grid x:Name="EquipmentGrid" Grid.Row="1" Grid.Column="2">
             <Grid.ColumnDefinitions>
@@ -41,8 +41,9 @@
             <Grid.RowDefinitions>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button x:Name="EquipmentButton" Content="Equip" Height="32" Margin="0,139,0,189" Click="EquipmentButton_Click"/>
-            <Button x:Name="TakeOffButton" Content="Take off" Height="32" Margin="0,176,0,152" Click="TakeOffButton_Click"/>
+            <Button x:Name="EquipmentButton" Content="Equip" Height="32" Margin="0,139,0,189" Click="EquipmentButton_Click" IsEnabled="False"/>
+            <Button x:Name="TakeOffButton" Content="Take off" Height="32" Margin="0,176,0,152" Click="TakeOffButton_Click" IsEnabled="False"/>
+            <Button x:Name="UseButton" Content="Use" Height="32" Margin="0,102,0,226" Click="UseButton_Click" IsEnabled="False"/>
         </Grid>
     </Grid>
 </Window>

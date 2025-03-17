@@ -36,6 +36,18 @@ namespace Work1
             }
         }
 
+        public static Entity GetEntity(System.Drawing.Point position)
+        {
+            if (position.X < _current_scene.World.Length && position.Y < _current_scene.World[0].Length)
+            {
+                return _current_scene.World[position.X][position.Y].Entity;
+            }
+            else
+            {
+                return null!;
+            }
+        }
+
         public static void GameOver()
         {
             IsGameOver = true;
@@ -48,6 +60,7 @@ namespace Work1
             {
                 if (chunk.Entity.GetType().GetInterface(typeof(Interfaces.IHitable).Name) != null)
                 {
+                    Console.WriteLine($"[{chunk.Entity.Name}]:GetDamage:{damage};HP:{chunk.Entity.HP}");
                     var t = (Interfaces.IHitable)chunk.Entity;
                     t.onHit(damage);
                 }
@@ -171,28 +184,11 @@ namespace Work1
         {
             while (true)
             {
-                Entity entity = _current_scene.Entities.Find(x => x.Id == 1)!;
+                Entity entity = _current_scene.Entities.Find(x => x.Id == 10)!;
                 
                 if (entity != null)
                 {
-                    Random rnd = new Random();
-                    int o = rnd.Next(4);
-                    switch (o)
-                    {
-                        case 0:
-                            entity.Orientation = Orientations.North;
-                            break;
-                        case 1:
-                            entity.Orientation = Orientations.East;
-                            break;
-                        case 2:
-                            entity.Orientation = Orientations.South;
-                            break;
-                        case 3:
-                            entity.Orientation = Orientations.West;
-                            break;
-                    }
-                    //MoveEntity(entity, entity.Position.X + entity.Orientation.X, entity.Position.Y + entity.Orientation.Y);
+                    ((Aggressive)entity).AI();
                 }
                 await Task.Delay(Defaults.TickRate);
             }
@@ -313,19 +309,56 @@ namespace Work1
 
                 screen.Children.Add(weapon);
 
-                Rectangle el = new Rectangle()
+                //Render HP
+                BitmapImage hp_texture = new BitmapImage(new Uri("Textures\\System\\HP.png", UriKind.Relative));
+                for (int i = 0; i < Engine.Player.HP; i++)
                 {
-                    Width = Defaults.TileSize * Settings.zoom,
-                    Height = Defaults.TileSize * Settings.zoom,
-                    Fill = new SolidColorBrush(Colors.Red)
-                };
+                    Rectangle hp = new Rectangle()
+                    {
+                        Width = hp_texture.Width * Settings.UI_Size,
+                        Height = hp_texture.Height * Settings.UI_Size,
+                        Fill = new ImageBrush(hp_texture)
+                    };
 
-                Canvas.SetZIndex(el, 5);
+                    Canvas.SetZIndex(hp, 10);
 
-                Canvas.SetLeft(el, Defaults.TileSize * Settings.zoom);
-                Canvas.SetTop(el, 0);
+                    Canvas.SetLeft(hp, 0 + i * hp.Width);
+                    Canvas.SetTop(hp, 0);
 
-                screen.Children.Add(el);
+                    screen.Children.Add(hp);
+                }
+
+                //Render Ammo
+                if (Player.Weapon.GetType() == typeof(ClipWeapon))
+                {
+                    for (int i = 0; i < ((ClipWeapon)Player.Weapon).MaxAmmoCount; i++)
+                    {
+                        BitmapImage texture = new BitmapImage();
+                        if (i < ((ClipWeapon)Player.Weapon).AmmoCount)
+                        {
+                            texture = new BitmapImage(new Uri("Textures\\System\\BULLET.png", UriKind.Relative));
+                        }
+                        else
+                        {
+                            texture = new BitmapImage(new Uri("Textures\\System\\SLEEVE.png", UriKind.Relative));
+                        }
+
+                        Rectangle bullet = new Rectangle()
+                        {
+                            Width = texture.Width * Settings.UI_Size,
+                            Height = texture.Height * Settings.UI_Size,
+                            Fill = new ImageBrush(texture)
+                        };
+
+                        Canvas.SetZIndex(bullet, 10);
+
+                        Canvas.SetLeft(bullet, 0 + i * bullet.Width * 0.7);
+                        Canvas.SetTop(bullet, hp_texture.Height * Settings.UI_Size);
+
+                        screen.Children.Add(bullet);
+                    }
+                }
+                
 
                 if (IsGameOver)
                 {

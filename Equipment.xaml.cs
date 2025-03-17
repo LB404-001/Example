@@ -19,6 +19,7 @@ namespace Work1
     /// </summary>
     public partial class EquipmentWindow : Window
     {
+        static bool IsUpdatig = false;
         private Player player;
         public EquipmentWindow()
         {
@@ -56,12 +57,61 @@ namespace Work1
 
         private void ShowItems()
         {
+            IsUpdatig = true;
             InventoryItems.Items.Clear();
             foreach (var item in player.Inventory.Items)
             {
                 InventoryItems.Items.Add(item.Name);
             }
             LabelWeaponName.Content = player.Weapon.Name;
+            IsUpdatig = false;
+        }
+
+        private void InventoryItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            EquipmentButton.IsEnabled = false;
+            TakeOffButton.IsEnabled = false;
+            UseButton.IsEnabled = false;
+            if (!IsUpdatig)
+            {
+                string item = InventoryItems.SelectedItem.ToString()!;
+                if (item != null)
+                {
+                    var a = player.Inventory.Items.Find(x => x.Name == item)!;
+                    if (a != null)
+                    {
+                        if (a.GetType().IsSubclassOf(typeof(Weapon)))
+                        {
+                            if (player.Weapon == a)
+                            {
+                                TakeOffButton.IsEnabled = true;
+                            }
+                            EquipmentButton.IsEnabled = true;
+                        }
+                        if (a.GetType().GetInterface(typeof(Interfaces.IUsable).Name) != null)
+                        {
+                            UseButton.IsEnabled = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void UseButton_Click(object sender, RoutedEventArgs e)
+        {
+            string item = InventoryItems.SelectedItem.ToString()!;
+            if (item != null)
+            {
+                var a = player.Inventory.Items.Find(x => x.Name == item)!;
+                if (a != null)
+                {
+                    if (a.GetType().GetInterface(typeof(Interfaces.IUsable).Name) != null)
+                    {
+                        ((Interfaces.IUsable)a).Use(Engine.Player, Engine.Player.Position);
+                    }
+                }
+            }
+            ShowItems();
         }
     }
 }

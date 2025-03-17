@@ -18,6 +18,7 @@ namespace Work1
         private Point _orientation;
         private int _HP;
         private Point _position;
+        private int _MaxHP;
         public Point Position
         {
             get { return _position; }
@@ -36,7 +37,12 @@ namespace Work1
         public int HP
         {
             get { return _HP; }
-            protected set { _HP = value; }
+            set { _HP = value; }
+        }
+        public int MaxHP
+        {
+            get { return _MaxHP; }
+            protected set { _MaxHP = value; }
         }
         public BitmapImage Texture
         {
@@ -71,7 +77,7 @@ namespace Work1
         }
     }
 
-    internal class NPC : Entity, Interfaces.IHitable
+    internal abstract class NPC : Entity, Interfaces.IHitable
     {
         public void onHit(int damage)
         {
@@ -87,6 +93,87 @@ namespace Work1
         {
             //this.Texture = new BitmapImage(new Uri("F:\\Projects\\Work1\\Textures\\Entities\\NPC\\target.png"));
             this.HP = hp;
+            this.MaxHP = hp;
+        }
+
+        public NPC(string name, int id, BitmapImage texture, int hp, int maxhp, Point position) : base(name, id, texture, position)
+        {
+            //this.Texture = new BitmapImage(new Uri("F:\\Projects\\Work1\\Textures\\Entities\\NPC\\target.png"));
+            this.HP = hp;
+            this.MaxHP = maxhp;
+        }
+    }
+
+    internal abstract class Aggressive : Entity, Interfaces.IHitable
+    {
+        public abstract void Attack();
+
+        public abstract void Move();
+
+        public void onHit(int damage)
+        {
+            this.HP -= damage;
+            if (this.HP <= 0)
+            {
+                this.Texture = new BitmapImage(new Uri(Defaults.NullTexturePath));
+                Engine.KillEntity(this);
+            }
+        }
+
+        public abstract void AI();
+
+        public Aggressive(string name, int id, BitmapImage texture, int hp, int maxhp, Point position) : base(name, id, texture, position)
+        {
+            this.HP = hp;
+            this.MaxHP = maxhp;
+        }
+    }
+
+    internal class Zombie : Aggressive
+    {
+        public override void Attack()
+        {
+            int x = Position.X + Orientation.X;
+            int y = Position.Y + Orientation.Y;
+            Engine.Damage(x, y, 1);
+        }
+        public override void Move()
+        {
+            Engine.MoveEntity(this, Position.X + Orientation.X, Position.Y + Orientation.Y);
+        }
+        public override void AI()
+        {
+            Random rnd = new Random();
+            int r = rnd.Next(4);
+            switch (r)
+            {
+                case 0:
+                    Orientation = Orientations.North;
+                    Texture = new BitmapImage(new Uri("Textures\\Entities\\Zombie\\Zombie_north.png", UriKind.Relative));
+                    break;
+                case 1:
+                    Orientation = Orientations.East;
+                    Texture = new BitmapImage(new Uri("Textures\\Entities\\Zombie\\Zombie_east.png", UriKind.Relative));
+                    break;
+                case 2:
+                    Orientation = Orientations.South;
+                    Texture = new BitmapImage(new Uri("Textures\\Entities\\Zombie\\Zombie_west.png", UriKind.Relative));
+                    break;
+                case 3:
+                    Orientation = Orientations.West;
+                    Texture = new BitmapImage(new Uri("Textures\\Entities\\Zombie\\Zombie_south.png", UriKind.Relative));
+                    break;
+            }
+            r = rnd.Next(2);
+            if (r > 0)
+            {
+                Move();
+            }
+            Attack();
+        }
+        public Zombie(string name, int id, BitmapImage texture, int hp, int maxhp, Point position) : base(name, id, texture, hp, maxhp, position)
+        {
+
         }
     }
 
@@ -190,16 +277,11 @@ namespace Work1
             }
         }
 
-        public Player(string name) : base(name, 0, new BitmapImage(), new Point(0,0))
-        {
-            this.Position = new Point(0,0);
-            this.inventory = new Inventory();
-        }
-
         public Player(string name, Point position) : base(name, 0, new BitmapImage(new Uri("F:\\Projects\\Work1\\Textures\\Entities\\Player\\Player.png")), new Point(0, 0))
         {
             this.Position = position;
-            this.HP = 6;
+            this.HP = 5;
+            this.MaxHP = 5;
             this.inventory = new Inventory();
             inventory.Items.Add(this.Weapon);
         }

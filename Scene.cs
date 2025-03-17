@@ -51,9 +51,10 @@ namespace Work1
                 }
             }
             _entities = new List<Entity>(0);
-            _entities.Add(new Player("player", new Point(1,1)));
-
-            _staticObjects = new List<Object>(0);
+            Player player = new Player("player", new Point(1, 1));
+            player.Inventory.Add(Items.Beer);
+            player.Inventory.Add(Weapons.Knife);
+            _entities.Add(player);
             
 
             for (int i = 0; i < x; i++)
@@ -80,13 +81,15 @@ namespace Work1
             }
 
             _world[5][5].Object = new Trap("trap1", new BitmapImage(new Uri("F:\\Projects\\Work1\\Textures\\Objects\\Furniture\\Chest.png")), 5);
-            _world[3][5].Entity = new NPC("target", 1, new BitmapImage(new Uri("F:\\Projects\\Work1\\Textures\\Entities\\NPC\\target.png")), 20, new Point(3,5));
+            _world[3][5].Entity = new Zombie("target", 10, new BitmapImage(new Uri("F:\\Projects\\Work1\\Textures\\Entities\\NPC\\target.png")), 100, 100, new Point(3,5));
             _world[3][4].Object = new StaticObject($"wall", new BitmapImage(new Uri(("F:\\Projects\\Work1\\Textures\\Objects\\Buildings\\Walls\\CBW.png"))));
             _world[3][4].Collision = true;
             _entities.Add(_world[3][5].Entity);
 
             _world[6][7].Object = new Chest("testchest", new BitmapImage(new Uri("F:\\Projects\\Work1\\Textures\\Objects\\Furniture\\Chest.png")));
             _world[6][7].Collision = true;
+
+
         }
     }
 }

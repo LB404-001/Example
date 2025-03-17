@@ -23,7 +23,7 @@ namespace Work1
             RenderOptions.SetBitmapScalingMode(Screen, BitmapScalingMode.NearestNeighbor);
             Engine._current_scene = new Scene(10, 10);
             Engine.Render(Screen);
-            //Engine.Tick();
+            Engine.Tick();
             //GUI_Controller.Render(Screen);
         }
 

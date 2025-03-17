@@ -23,7 +23,7 @@ namespace Work1
 
         internal interface IUsable
         {
-            void Use(Point target);
+            void Use(Entity user, Point target);
         }
 
         internal interface IInteractable

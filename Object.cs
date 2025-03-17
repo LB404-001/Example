@@ -94,9 +94,9 @@ namespace Work1
                 t.onHit(_damage);
             }
         }
-        public Trap(string name, BitmapImage texture, int danage) : base(name, texture)
+        public Trap(string name, BitmapImage texture, int damage) : base(name, texture)
         {
-            _damage = danage;
+            _damage = damage;
         }
     }
 

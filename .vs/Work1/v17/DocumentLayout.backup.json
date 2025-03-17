@@ -3,32 +3,32 @@
   "WorkspaceRootPath": "F:\\Projects\\Work1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\weapons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:weapons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\scene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:scene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\engine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:engine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\deathwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:deathwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\deathwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:deathwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\defaults.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:defaults.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\entites.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:entites.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\object.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:object.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\scene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:scene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\equipment.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,6 +39,37 @@
       "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:equipment.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\items.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:items.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\interfaces.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:interfaces.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\\u0410\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440\\AppData\\Local\\SourceServer\\bcc0584600d59bdb69d987313ef81ce6ca6d2dc27625f4b41ad05596c0bc4d77\\src\\libraries\\System.Private.CoreLib\\src\\Microsoft\\Win32\\SafeHandles\\SafeFileHandle.Windows.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\work1.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:work1.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\deathwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:deathwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\deathwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:deathwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\inventory.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:inventory.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -47,32 +78,8 @@
       "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:inventory.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\weapons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:weapons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\items.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:items.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\interfaces.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:interfaces.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\object.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:object.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\defaults.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|solutionrelative:defaults.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4D754BDB-9323-4B9A-853D-CD54EC162080}|Work1.csproj|f:\\projects\\work1\\chunk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -97,32 +104,31 @@
       "DocumentGroups": [
         {
           "DockedHeight": 279,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DeathWindow.xaml.cs",
-              "DocumentMoniker": "F:\\Projects\\Work1\\DeathWindow.xaml.cs",
-              "RelativeDocumentMoniker": "DeathWindow.xaml.cs",
-              "ToolTip": "F:\\Projects\\Work1\\DeathWindow.xaml.cs",
-              "RelativeToolTip": "DeathWindow.xaml.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAmwBwAAAAgAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Engine.cs",
+              "DocumentMoniker": "F:\\Projects\\Work1\\Engine.cs",
+              "RelativeDocumentMoniker": "Engine.cs",
+              "ToolTip": "F:\\Projects\\Work1\\Engine.cs",
+              "RelativeToolTip": "Engine.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAD4v0AAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-15T01:38:34.028Z",
+              "WhenOpened": "2025-03-17T06:09:51.313Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 15,
               "Title": "DeathWindow.xaml",
               "DocumentMoniker": "F:\\Projects\\Work1\\DeathWindow.xaml",
               "RelativeDocumentMoniker": "DeathWindow.xaml",
               "ToolTip": "F:\\Projects\\Work1\\DeathWindow.xaml",
               "RelativeToolTip": "DeathWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-15T01:35:46.743Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-15T01:35:46.743Z"
             },
             {
               "$type": "Document",
@@ -132,7 +138,7 @@
               "RelativeDocumentMoniker": "Equipment.xaml.cs",
               "ToolTip": "F:\\Projects\\Work1\\Equipment.xaml.cs",
               "RelativeToolTip": "Equipment.xaml.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAIwD8AAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAADMAAAAAAAAAAAAswFoAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-15T00:49:43.319Z",
               "EditorCaption": ""
@@ -151,19 +157,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 3,
               "Title": "Defaults.cs",
               "DocumentMoniker": "F:\\Projects\\Work1\\Defaults.cs",
               "RelativeDocumentMoniker": "Defaults.cs",
               "ToolTip": "F:\\Projects\\Work1\\Defaults.cs",
               "RelativeToolTip": "Defaults.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T20:03:37.512Z"
+              "WhenOpened": "2025-02-19T20:03:37.512Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "Work1.csproj",
               "DocumentMoniker": "F:\\Projects\\Work1\\Work1.csproj",
               "RelativeDocumentMoniker": "Work1.csproj",
@@ -175,108 +182,155 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 0,
               "Title": "Weapons.cs",
               "DocumentMoniker": "F:\\Projects\\Work1\\Weapons.cs",
               "RelativeDocumentMoniker": "Weapons.cs",
               "ToolTip": "F:\\Projects\\Work1\\Weapons.cs",
               "RelativeToolTip": "Weapons.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAC4AAAAAAAAAAADwv3AAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-19T17:31:08.032Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 9,
               "Title": "Items.cs",
               "DocumentMoniker": "F:\\Projects\\Work1\\Items.cs",
               "RelativeDocumentMoniker": "Items.cs",
               "ToolTip": "F:\\Projects\\Work1\\Items.cs",
               "RelativeToolTip": "Items.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAmwFYAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T15:57:29.306Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Engine.cs",
-              "DocumentMoniker": "F:\\Projects\\Work1\\Engine.cs",
-              "RelativeDocumentMoniker": "Engine.cs",
-              "ToolTip": "F:\\Projects\\Work1\\Engine.cs*",
-              "RelativeToolTip": "Engine.cs*",
-              "ViewState": "AgIAACgBAAAAAAAAAAAYwE0BAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T22:56:39.383Z",
+              "WhenOpened": "2025-02-19T15:57:29.306Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Entites.cs",
               "DocumentMoniker": "F:\\Projects\\Work1\\Entites.cs",
               "RelativeDocumentMoniker": "Entites.cs",
               "ToolTip": "F:\\Projects\\Work1\\Entites.cs",
               "RelativeToolTip": "Entites.cs",
-              "ViewState": "AgIAAHMAAAAAAAAAAAAwwMsAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAACkAAAAAAAAAAAA0wLgAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-20T09:52:41.214Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 10,
               "Title": "Interfaces.cs",
               "DocumentMoniker": "F:\\Projects\\Work1\\Interfaces.cs",
               "RelativeDocumentMoniker": "Interfaces.cs",
               "ToolTip": "F:\\Projects\\Work1\\Interfaces.cs",
               "RelativeToolTip": "Interfaces.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAmwDcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAowBkAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T15:56:12.449Z"
+              "WhenOpened": "2025-02-19T15:56:12.449Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "Scene.cs",
               "DocumentMoniker": "F:\\Projects\\Work1\\Scene.cs",
               "RelativeDocumentMoniker": "Scene.cs",
               "ToolTip": "F:\\Projects\\Work1\\Scene.cs",
               "RelativeToolTip": "Scene.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAADwv1IAAACPAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAkwFMAAACUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-19T15:29:54.102Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
+              "Title": "Object.cs",
+              "DocumentMoniker": "F:\\Projects\\Work1\\Object.cs",
+              "RelativeDocumentMoniker": "Object.cs",
+              "ToolTip": "F:\\Projects\\Work1\\Object.cs",
+              "RelativeToolTip": "Object.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAA1wGIAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T22:40:25.332Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "SafeFileHandle.Windows.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440\\AppData\\Local\\SourceServer\\bcc0584600d59bdb69d987313ef81ce6ca6d2dc27625f4b41ad05596c0bc4d77\\src\\libraries\\System.Private.CoreLib\\src\\Microsoft\\Win32\\SafeHandles\\SafeFileHandle.Windows.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440\\AppData\\Local\\SourceServer\\bcc0584600d59bdb69d987313ef81ce6ca6d2dc27625f4b41ad05596c0bc4d77\\src\\libraries\\System.Private.CoreLib\\src\\Microsoft\\Win32\\SafeHandles\\SafeFileHandle.Windows.cs [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]",
+              "ViewState": "AgIAAGAAAAAAAAAAAAArwHEAAAAQAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T11:38:58.483Z",
+              "EditorCaption": " [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "F:\\Projects\\Work1\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "F:\\Projects\\Work1\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAgwDYAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAArwBkAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T15:22:54.61Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T15:22:54.61Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
+              "Title": "Work1",
+              "DocumentMoniker": "F:\\Projects\\Work1\\Work1.csproj",
+              "RelativeDocumentMoniker": "Work1.csproj",
+              "ToolTip": "F:\\Projects\\Work1\\Work1.csproj",
+              "RelativeToolTip": "Work1.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-16T11:35:15.546Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "Inventory.xaml",
               "DocumentMoniker": "F:\\Projects\\Work1\\Inventory.xaml",
               "RelativeDocumentMoniker": "Inventory.xaml",
               "ToolTip": "F:\\Projects\\Work1\\Inventory.xaml",
               "RelativeToolTip": "Inventory.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-07T17:42:14.733Z",
+              "WhenOpened": "2025-03-07T17:42:14.733Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Settings.cs",
+              "DocumentMoniker": "F:\\Projects\\Work1\\Settings.cs",
+              "RelativeDocumentMoniker": "Settings.cs",
+              "ToolTip": "F:\\Projects\\Work1\\Settings.cs",
+              "RelativeToolTip": "Settings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T22:49:42.683Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 14,
+              "Title": "DeathWindow.xaml.cs",
+              "DocumentMoniker": "F:\\Projects\\Work1\\DeathWindow.xaml.cs",
+              "RelativeDocumentMoniker": "DeathWindow.xaml.cs",
+              "ToolTip": "F:\\Projects\\Work1\\DeathWindow.xaml.cs",
+              "RelativeToolTip": "DeathWindow.xaml.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAmwBwAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T01:38:34.028Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
               "Title": "Inventory.xaml.cs",
               "DocumentMoniker": "F:\\Projects\\Work1\\Inventory.xaml.cs",
               "RelativeDocumentMoniker": "Inventory.xaml.cs",
@@ -284,12 +338,11 @@
               "RelativeToolTip": "Inventory.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T17:53:48.512Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-07T17:53:48.512Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 16,
               "Title": "Inventory.cs",
               "DocumentMoniker": "F:\\Projects\\Work1\\Inventory.cs",
               "RelativeDocumentMoniker": "Inventory.cs",
@@ -297,12 +350,11 @@
               "RelativeToolTip": "Inventory.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAC4AAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-01T14:37:48.081Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-01T14:37:48.081Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 19,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "F:\\Projects\\Work1\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
@@ -313,31 +365,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Settings.cs",
-              "DocumentMoniker": "F:\\Projects\\Work1\\Settings.cs",
-              "RelativeDocumentMoniker": "Settings.cs",
-              "ToolTip": "F:\\Projects\\Work1\\Settings.cs",
-              "RelativeToolTip": "Settings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T22:49:42.683Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Object.cs",
-              "DocumentMoniker": "F:\\Projects\\Work1\\Object.cs",
-              "RelativeDocumentMoniker": "Object.cs",
-              "ToolTip": "F:\\Projects\\Work1\\Object.cs",
-              "RelativeToolTip": "Object.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAA5wDMAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T22:40:25.332Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "DataTypes.cs",
               "DocumentMoniker": "F:\\Projects\\Work1\\DataTypes.cs",
               "RelativeDocumentMoniker": "DataTypes.cs",
@@ -349,7 +377,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "Chunk.cs",
               "DocumentMoniker": "F:\\Projects\\Work1\\Chunk.cs",
               "RelativeDocumentMoniker": "Chunk.cs",
@@ -361,7 +389,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "BitmapInitialize.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440\\AppData\\Local\\Temp\\.vsdbgsrc\\4fdff04d90184e2428e8a02da25ab09be07628a2356be53c924cbc706f4db0db\\BitmapInitialize.cs",
               "ToolTip": "C:\\Users\\\u0410\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440\\AppData\\Local\\Temp\\.vsdbgsrc\\4fdff04d90184e2428e8a02da25ab09be07628a2356be53c924cbc706f4db0db\\BitmapInitialize.cs [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]",
