@@ -87,7 +87,7 @@ namespace Work1
                 _world[i][x-1].Object = wall;
             }
 
-            _world[5][5].Object = new Trap("trap1", new BitmapImage(new Uri("Textures\\Objects\\Furniture\\Chest.png", UriKind.Relative)), 5);
+            _world[5][5].Object = new Trap("trap1", new BitmapImage(new Uri("Textures\\Objects\\Trigerrable\\Trap_active.png", UriKind.Relative)), 3);
             _world[3][5].Entity = new Zombie("target", 10, new BitmapImage(new Uri(("Textures\\Objects\\Buildings\\Walls\\CBW.png"), UriKind.Relative)), 100, 100, new Point(3,5));
             _world[3][4].Object = new StaticObject($"wall", new BitmapImage(new Uri(("Textures\\Objects\\Buildings\\Walls\\CBW.png"), UriKind.Relative)));
             _world[1][2].Object = new StaticObject($"wall", new BitmapImage(new Uri(("Textures\\Objects\\Buildings\\Walls\\CBW.png"), UriKind.Relative)));
