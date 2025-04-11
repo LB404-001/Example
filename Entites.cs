@@ -19,6 +19,7 @@ namespace Work1
         private int _HP;
         private Point _position;
         private int _MaxHP;
+        private string _texture_path;
         public Point Position
         {
             get { return _position; }
@@ -44,10 +45,16 @@ namespace Work1
             get { return _MaxHP; }
             protected set { _MaxHP = value; }
         }
+
+        public string TexturePath
+        {
+            get { return _texture_path; }
+            protected set { _texture_path = value; }
+        }
         public BitmapImage Texture
         {
             get { return _texture; }
-            protected set { _texture = value; }
+            set { _texture = value; }
         }
 
         public Point Orientation
@@ -129,8 +136,9 @@ namespace Work1
         }
     }
 
-    internal class Zombie : Aggressive
+    internal class Zombie : Aggressive, Interfaces.IHasOrientatedTexture
     {
+        List<Point> orientations = new List<Point>();
         public override void Attack()
         {
             int x = Position.X + Orientation.X;
@@ -143,41 +151,149 @@ namespace Work1
         }
         public override void AI()
         {
-            Random rnd = new Random();
-            int r = rnd.Next(4);
-            switch (r)
+            //((Interfaces.IHasOrientatedTexture)this).OrientateTexture();
+            
+            Chunk a = Engine.Raycast(this.Position, Engine.Player.Position);
+            if (a != null)
             {
-                case 0:
-                    Orientation = Orientations.North;
-                    Texture = new BitmapImage(new Uri("Textures\\Entities\\Zombie\\Zombie_north.png", UriKind.Relative));
-                    break;
-                case 1:
-                    Orientation = Orientations.East;
-                    Texture = new BitmapImage(new Uri("Textures\\Entities\\Zombie\\Zombie_east.png", UriKind.Relative));
-                    break;
-                case 2:
-                    Orientation = Orientations.South;
-                    Texture = new BitmapImage(new Uri("Textures\\Entities\\Zombie\\Zombie_west.png", UriKind.Relative));
-                    break;
-                case 3:
-                    Orientation = Orientations.West;
-                    Texture = new BitmapImage(new Uri("Textures\\Entities\\Zombie\\Zombie_south.png", UriKind.Relative));
-                    break;
+                if (a.Entity == Engine.Player)
+                {
+                    Console.WriteLine($"Entity:{this.Name} - See an Entity:{Engine.Player.Name}");
+                    orientations.Clear();
+
+                    double[][] mesh = new double[Engine._current_scene.World.Length][];
+                    for (int i = 0; i < mesh.Length; i++)
+                    {
+                        mesh[i] = new double[Engine._current_scene.World[i].Length];
+                        for (int j = 0; j < mesh[i].Length; j++)
+                        {
+                            mesh[i][j] = double.PositiveInfinity;
+                        }
+                    }
+                    mesh[this.Position.X][this.Position.Y] = 0;
+                    int sc = 0;
+                    while (sc < 99 && mesh[Engine.Player.Position.X][Engine.Player.Position.Y] == double.PositiveInfinity)
+                    {
+                        for (int i = 1; i < mesh.Length - 1; i++)
+                        {
+                            for (int j = 1; j < mesh[i].Length - 1; j++)
+                            {
+                                if (mesh[i][j] != double.PositiveInfinity)
+                                {
+                                    if (!Engine._current_scene.World[i - 1][j].Collision && mesh[i - 1][j] == double.PositiveInfinity)
+                                    {
+                                        mesh[i - 1][j] = mesh[i][j] + 1;
+                                    }
+                                    if (!Engine._current_scene.World[i + 1][j].Collision && mesh[i + 1][j] == double.PositiveInfinity)
+                                    {
+                                        mesh[i + 1][j] = mesh[i][j] + 1;
+                                    }
+                                    if (!Engine._current_scene.World[i][j - 1].Collision && mesh[i][j - 1] == double.PositiveInfinity)
+                                    {
+                                        mesh[i][j - 1] = mesh[i][j] + 1;
+                                    }
+                                    if (!Engine._current_scene.World[i][j + 1].Collision && mesh[i][j + 1] == double.PositiveInfinity)
+                                    {
+                                        mesh[i][j + 1] = mesh[i][j] + 1;
+                                    }
+                                }
+                            }
+                        }
+
+                        sc++;
+                    }
+                    sc = 0;
+                    int x = Engine.Player.Position.X;
+                    int y = Engine.Player.Position.Y;
+                    while ((x != this.Position.X || y != this.Position.Y) && sc < 99)
+                    {
+                        double min = double.PositiveInfinity;
+                        mesh[x][y] = double.PositiveInfinity;
+                        Point orientation = new Point(x, y);
+                        if (x != 0)
+                        {
+                            if (mesh[x - 1][y] < min)
+                            {
+                                min = mesh[x - 1][y];
+                                orientation = new Point(-1, 0);
+                            }
+                        }
+                        if (x != mesh.Length - 1)
+                        {
+                            if (mesh[x + 1][y] < min)
+                            {
+                                min = mesh[x + 1][y];
+                                orientation = new Point(1, 0);
+                            }
+                        }
+                        if (y != 0)
+                        {
+                            if (mesh[x][y - 1] < min)
+                            {
+                                min = mesh[x][y - 1];
+                                orientation = new Point(0, -1);
+                            }
+                        }
+                        if (y != mesh[0].Length - 1)
+                        {
+                            if (mesh[x][y + 1] < min)
+                            {
+                                min = mesh[x][y + 1];
+                                orientation = new Point(0, 1);
+                            }
+                        }
+                        orientations.Add(new Point(-orientation.X, -orientation.Y));
+                        x += orientation.X;
+                        y += orientation.Y;
+
+                        
+
+                        sc++;
+                    }
+                    
+                }
             }
-            r = rnd.Next(2);
-            if (r > 0)
+            if (orientations.Count != 0)
             {
+                Orientation = orientations.Last();
+                ((Interfaces.IHasOrientatedTexture)this).OrientateTexture();
+                Attack();
                 Move();
+                orientations.Remove(Orientation);
             }
-            Attack();
+            //Random rnd = new Random();
+            //int r = rnd.Next(4);
+            //switch (r)
+            //{
+            //    case 0:
+            //        Orientation = Orientations.North;
+            //        break;
+            //    case 1:
+            //        Orientation = Orientations.East;
+            //        break;
+            //    case 2:
+            //        Orientation = Orientations.South;
+            //        break;
+            //    case 3:
+            //        Orientation = Orientations.West;
+            //        break;
+            //}
+            //((Interfaces.IHasOrientatedTexture)this).OrientateTexture();
+            //r = rnd.Next(2);
+            //if (r > 0)
+            //{
+            //    Move();
+            //}
+            //Attack();
         }
         public Zombie(string name, int id, BitmapImage texture, int hp, int maxhp, Point position) : base(name, id, texture, hp, maxhp, position)
         {
-
+            this.TexturePath = "Textures\\Entities\\Zombie";
+            ((Interfaces.IHasOrientatedTexture)this).OrientateTexture();
         }
     }
 
-    internal class Player : Entity, Interfaces.IHitable, Interfaces.IHasInventory
+    internal class Player : Entity, Interfaces.IHitable, Interfaces.IHasInventory, Interfaces.IHasOrientatedTexture
     {
         private Weapon _weapon = Weapons.Pistol;
         private Inventory inventory;
@@ -208,16 +324,36 @@ namespace Work1
 
         public void MeleeAttack()
         {
-            _weapon.Use(this.Position, this.Orientation);
+            if (_weapon.GetType().Name == "MeeleWeapon")
+            {
+                _weapon.Use(this.Position, this.Orientation);
+            }
         }
 
         public void onHit(int damage)
         {
             this.HP -= damage;
+            Effect a = Effects.Bleed();
+            a.X += this.Position.X;
+            a.Y += this.Position.Y;
+            a.Play();
+            //var a = Engine._current_scene.World[this.Position.X][this.Position.Y].Object;
+            //if (a == null)
+            //{
+            //    a = Objects.Blood(0);
+            //}
+            //else
+            //{
+            //    if (a.GetType() == typeof(Blood))
+            //    {
+            //        a = Objects.Blood(((Blood)a).Level+1);
+            //    }
+            //}
+            //Engine._current_scene.World[this.Position.X][this.Position.Y].Object = a;
             if (this.HP <= 0)
             {
                 this.Texture = new BitmapImage(new Uri(Defaults.NullTexturePath));
-                Engine.GameOver();
+                Engine.IsGameOver = true;
             }
         }
 
@@ -245,23 +381,7 @@ namespace Work1
                     break;
             }
             Orientation = NewOrientation;
-            string playerTexturePath = Defaults.PlayerTexturePath;
-            switch (Orientation)
-            {
-                case var value when value == Orientations.North:
-                    playerTexturePath += "\\North.png";
-                break;
-                case var value when value == Orientations.South:
-                    playerTexturePath += "\\South.png";
-                    break;
-                case var value when value == Orientations.West:
-                    playerTexturePath += "\\West.png";
-                    break;
-                case var value when value == Orientations.East:
-                    playerTexturePath += "\\East.png";
-                    break;
-            }
-            Texture = new BitmapImage(new Uri(playerTexturePath));
+            ((Interfaces.IHasOrientatedTexture)this).OrientateTexture();
             Engine.MoveEntity(this, NewPosition.X, NewPosition.Y);
         }
 
@@ -283,7 +403,17 @@ namespace Work1
             this.HP = 5;
             this.MaxHP = 5;
             this.inventory = new Inventory();
+            this.TexturePath = "Textures\\Entities\\Player";
+            this.Orientation = Orientations.East;
             inventory.Items.Add(this.Weapon);
+        }
+    }
+
+    internal static class Abilities
+    {
+        public static void Bleed()
+        {
+
         }
     }
 }

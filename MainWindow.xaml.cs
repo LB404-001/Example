@@ -21,8 +21,9 @@ namespace Work1
             InitializeComponent();
 
             RenderOptions.SetBitmapScalingMode(Screen, BitmapScalingMode.NearestNeighbor);
+            Engine.screen = Screen;
             Engine._current_scene = new Scene(10, 10);
-            Engine.Render(Screen);
+            Engine.Render();
             Engine.Tick();
             //GUI_Controller.Render(Screen);
         }

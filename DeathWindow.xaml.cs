@@ -28,5 +28,12 @@ namespace Work1
         {
             Environment.Exit(0);
         }
+
+        private void Restart_Click(object sender, RoutedEventArgs e)
+        {
+            Engine._current_scene = new Scene(10,10);
+            Engine.IsGameOver = false;
+            this.DialogResult = true;
+        }
     }
 }

@@ -16,7 +16,13 @@ namespace Work1
         private Chunk[][] _world;
         private List<Entity> _entities;
         private List<Object> _staticObjects;
+        private List<Effect> _effects = new List<Effect>(0);
 
+        public List<Effect> Effects
+        {
+            get { return _effects; }
+            //set { _effects = value; }
+        }
         public Chunk[][] World
         {
             get { return _world; }
@@ -46,7 +52,7 @@ namespace Work1
                     texture.BeginInit();
                     texture.UriSource = new Uri(Defaults.GroundTexture);
                     texture.EndInit();
-                    _world[i][j] = new Chunk(new Ground($"ground_{i*y+j}", texture), null!, null!, false);
+                    _world[i][j] = new Chunk(new Ground($"ground_{i*y+j}", texture), null!, null!, false, new Point(i, j));
 
                 }
             }
@@ -54,6 +60,7 @@ namespace Work1
             Player player = new Player("player", new Point(1, 1));
             player.Inventory.Add(Items.Beer);
             player.Inventory.Add(Weapons.Knife);
+            player.Inventory.Add(Weapons.Rifle);
             _entities.Add(player);
             
 
@@ -83,10 +90,11 @@ namespace Work1
             _world[5][5].Object = new Trap("trap1", new BitmapImage(new Uri("F:\\Projects\\Work1\\Textures\\Objects\\Furniture\\Chest.png")), 5);
             _world[3][5].Entity = new Zombie("target", 10, new BitmapImage(new Uri("F:\\Projects\\Work1\\Textures\\Entities\\NPC\\target.png")), 100, 100, new Point(3,5));
             _world[3][4].Object = new StaticObject($"wall", new BitmapImage(new Uri(("F:\\Projects\\Work1\\Textures\\Objects\\Buildings\\Walls\\CBW.png"))));
+            _world[1][2].Object = new StaticObject($"wall", new BitmapImage(new Uri(("F:\\Projects\\Work1\\Textures\\Objects\\Buildings\\Walls\\CBW.png"))));
             _world[3][4].Collision = true;
             _entities.Add(_world[3][5].Entity);
 
-            _world[6][7].Object = new Chest("testchest", new BitmapImage(new Uri("F:\\Projects\\Work1\\Textures\\Objects\\Furniture\\Chest.png")));
+            _world[6][7].Object = Objects.Chest();//new Chest("testchest", new BitmapImage(new Uri("F:\\Projects\\Work1\\Textures\\Objects\\Furniture\\Chest.png")));
             _world[6][7].Collision = true;
 
 

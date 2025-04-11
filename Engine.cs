@@ -15,7 +15,9 @@ namespace Work1
 {
     internal static class Engine
     {
-        static bool IsGameOver = false;
+        public static bool IsGameOver = false;
+
+        public static Canvas screen;
 
         public static Scene _current_scene = new Scene(10, 10);
 
@@ -51,6 +53,8 @@ namespace Work1
         public static void GameOver()
         {
             IsGameOver = true;
+            DeathWindow dw = new DeathWindow();
+            dw.ShowDialog();
         }
 
         public static void Damage(int x, int y, int damage)
@@ -184,23 +188,38 @@ namespace Work1
         {
             while (true)
             {
-                Entity entity = _current_scene.Entities.Find(x => x.Id == 10)!;
-                
-                if (entity != null)
+                if (!IsGameOver)
                 {
-                    ((Aggressive)entity).AI();
+                    Entity entity = _current_scene.Entities.Find(x => x.Id == 10)!;
+
+                    if (entity != null)
+                    {
+                        ((Aggressive)entity).AI();
+                    }
+                    
                 }
+                
                 await Task.Delay(Defaults.TickRate);
             }
         }
 
-        public static async void Render(Canvas screen)
+        public static async void Render()
         {
             while (true)
             {
                 Point center = new Point(screen.Width / 2, screen.Height / 2);
-                Point zero_point = new Point(center.X - Settings.render_distace * Defaults.TileSize * Settings.zoom, center.Y - Settings.render_distace * Defaults.TileSize * Settings.zoom);
-                Player pl = (Player)_current_scene.Entities.Find(x => x.Id == 0)!;
+                System.Windows.Point b = Mouse.GetPosition(screen);
+                double x = Math.Round((b.X - center.X) / Defaults.TileSize / Settings.zoom);
+                double y = Math.Round((b.Y - center.Y) / Defaults.TileSize / Settings.zoom);
+                double angle = Math.Atan2(y, x);
+
+                Engine.Player.Orientation = new System.Drawing.Point(Convert.ToInt32(Math.Cos(angle)), Convert.ToInt32(Math.Sin(angle)));
+                ((Interfaces.IHasOrientatedTexture)Engine.Player).OrientateTexture();
+
+
+                //Point zero_point = new Point(center.X - Settings.render_distace * Defaults.TileSize * Settings.zoom, center.Y - Settings.render_distace * Defaults.TileSize * Settings.zoom);
+                Player pl = Engine.Player;
+
                 //Render world
                 screen.Children.Clear();
                 var world = Engine._current_scene.World;
@@ -297,11 +316,18 @@ namespace Work1
                 };
                 Canvas.SetZIndex(weapon, 4);
 
-                //var a = Mouse.GetPosition(screen);
-                System.Windows.Point b = Mouse.GetPosition(screen);
-                double x = b.X - center.X;
-                double y = b.Y - center.Y;
-                weapon.RenderTransform = new RotateTransform((Math.Atan2(y, x)) * 180 / Math.PI);
+                TransformGroup weaponTransforms = new TransformGroup();
+                if ((b.X - center.X) / Defaults.TileSize / Settings.zoom < 0)
+                {
+                    weaponTransforms.Children.Add(new MatrixTransform(1, 0, 0, -1, 0, 0));
+                    weaponTransforms.Children.Add(new RotateTransform((Math.Atan2(y, x)) * 180 / Math.PI));
+                }
+                else
+                {
+                    weaponTransforms.Children.Add(new RotateTransform((Math.Atan2(y, x)) * 180 / Math.PI));
+                }
+
+                weapon.RenderTransform = weaponTransforms;
 
 
                 Canvas.SetLeft(weapon, (0.0) * Defaults.TileSize * Settings.zoom + center.X);
@@ -358,15 +384,18 @@ namespace Work1
                         screen.Children.Add(bullet);
                     }
                 }
-                
-
+                //Render Effects
+                foreach (Effect effect in _current_scene.Effects)
+                {
+                    Canvas.SetLeft(effect.View, (effect.X - pl.Position.X) * Defaults.TileSize * Settings.zoom + center.X);
+                    Canvas.SetTop(effect.View, (effect.Y - pl.Position.Y) * Defaults.TileSize * Settings.zoom + center.Y);
+                    Canvas.SetZIndex(effect.View, 100);
+                    screen.Children.Add(effect.View);
+                }
                 if (IsGameOver)
                 {
-                    DeathWindow dw = new DeathWindow();
-                    dw.ShowDialog();
-                    Environment.Exit(0);
+                    GameOver();
                 }
-
                 await Task.Delay(10);
             }
         }

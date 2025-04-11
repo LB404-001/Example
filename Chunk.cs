@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,8 +12,14 @@ namespace Work1
         private Ground _ground = null!;
         private Entity _entity = null!;
         private Object _object = null!;
+        private Point _position = new Point(0,0);
         private bool _collision = false;
 
+        public Point Position
+        {
+            get { return _position; }
+            private set { _position = value; }
+        }
         public Ground Ground
         {
             get { return _ground; }
@@ -39,13 +46,13 @@ namespace Work1
             //this.Object = new Void();
         }
 
-        public Chunk(Ground ground, Object obj, Entity entity, bool collision)
+        public Chunk(Ground ground, Object obj, Entity entity, bool collision, Point position)
         {
             this.Ground = ground;
             this.Object = obj;
             this.Entity = entity;
             this.Collision = collision;
-
+            this.Position = position;
         }
     }
 }

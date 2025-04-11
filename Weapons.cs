@@ -11,12 +11,14 @@ namespace Work1
     internal abstract class Weapon : Item, Interfaces.IWeapon
     {
         protected int _MeleeDamage = 1;
+        protected int _size = 1;
 
         public abstract void Use(Point target, Point Orientation);
 
-        public Weapon(string name, int id, int damage, BitmapImage texture) : base(name, id, texture)
+        public Weapon(string name, int id, int damage, BitmapImage texture, int size) : base(name, id, texture)
         {
             _MeleeDamage = damage;
+            _size = size;
         }
     }
 
@@ -27,7 +29,7 @@ namespace Work1
 
         public abstract void Reload();
 
-        public DistanceWeapon(string name, int id, int damage, double range, BitmapImage texture) : base(name, id, 0, texture)
+        public DistanceWeapon(string name, int id, int damage, double range, BitmapImage texture, int size) : base(name, id, 0, texture, size)
         {
             _DistanceDamage = damage;
             _range = range;
@@ -83,19 +85,37 @@ namespace Work1
                         Orientation = new Point(Convert.ToInt32(x), Convert.ToInt32(y));
                     }
                     Chunk targetChunk = Engine.Raycast(Position, new Point(Position.X + Orientation.X, Position.Y + Orientation.Y));
+                    System.Windows.Point p = new System.Windows.Point(Orientation.X, Orientation.Y);
+
+                    Effect a = Effects.Fire();
+                    double angle = Math.Atan2(Orientation.Y, Orientation.X);
+                    a.Angle = angle / Math.PI * 180;
+                    a.X += Position.X + Math.Cos(angle) * (0.5 + 0.7 * _size);
+                    a.Y += Position.Y + Math.Sin(angle) * (0.5 + 0.7 * _size);
+                    a.Play();
+
                     if (targetChunk != null)
                     {
+                        p = new System.Windows.Point(targetChunk.Position.X - Position.X, targetChunk.Position.Y - Position.Y);
                         if (targetChunk.Entity != null)
                         {
                             Engine.Damage(targetChunk.Entity.Position.X, targetChunk.Entity.Position.Y, _DistanceDamage);
                         }
+                        Effect b = Effects.Hit();
+                        b.Angle = 0;
+                        b.X += targetChunk.Position.X;
+                        b.Y += targetChunk.Position.Y;
+                        b.Play();
                     }
+                    
                     _currentAmmoCount -= 1;
+                    
                 }
                 else
                 {
                     Reload();
                 }
+                
             }
         }
 
@@ -111,7 +131,7 @@ namespace Work1
             IsReloading = false;
         }
 
-        public ClipWeapon(string name, int id, int damage, double range, int maxAmmoCount, BitmapImage texture) : base(name, id, damage, range, texture)
+        public ClipWeapon(string name, int id, int damage, double range, int maxAmmoCount, BitmapImage texture, int size) : base(name, id, damage, range, texture, size)
         {
             _maxAmmoCount = maxAmmoCount;
             _currentAmmoCount = maxAmmoCount;
@@ -127,7 +147,7 @@ namespace Work1
             Engine.Damage(x, y, _MeleeDamage);
         }
 
-        public MeleeWeapon(string name, int id, int damage, BitmapImage texture) : base(name, id, damage, texture)
+        public MeleeWeapon(string name, int id, int damage, BitmapImage texture, int size) : base(name, id, damage, texture, size)
         {
 
         }
@@ -135,8 +155,9 @@ namespace Work1
 
     internal class Weapons
     {
-        public static MeleeWeapon Hand = new MeleeWeapon("Hand", 0, 1, new BitmapImage(new Uri("Textures\\Items\\Weapons\\Hand.png", UriKind.Relative)));
-        public static MeleeWeapon Knife = new MeleeWeapon("Knife", 1, 5, new BitmapImage(new Uri("Textures\\Items\\Weapons\\Knife.png", UriKind.Relative)));
-        public static ClipWeapon Pistol = new ClipWeapon("Pistol", 2, 15, 5, 5, new BitmapImage(new Uri("Textures\\Items\\Weapons\\Pistol.png", UriKind.Relative)));
+        public static MeleeWeapon Hand = new MeleeWeapon("Hand", 0, 1, new BitmapImage(new Uri("Textures\\Items\\Weapons\\Hand.png", UriKind.Relative)), 1);
+        public static MeleeWeapon Knife = new MeleeWeapon("Knife", 1, 5, new BitmapImage(new Uri("Textures\\Items\\Weapons\\Knife.png", UriKind.Relative)), 1);
+        public static ClipWeapon Pistol = new ClipWeapon("Pistol", 2, 15, 5, 5, new BitmapImage(new Uri("Textures\\Items\\Weapons\\Pistol.png", UriKind.Relative)), 1);
+        public static ClipWeapon Rifle = new ClipWeapon("Rifle", 3, 30, 15, 10, new BitmapImage(new Uri("Textures\\Items\\Weapons\\Rifle.png", UriKind.Relative)), 2);
     }
 }

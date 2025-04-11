@@ -107,4 +107,47 @@ namespace Work1
 
         }
     }
+
+    internal class Blood : Object
+    {
+        protected int _level;
+
+        public int Level
+        {
+            get { return _level; }
+            protected set { _level = value; }
+        }
+        public Blood(int level) : base("blood", new BitmapImage(new Uri("Textures\\Objects\\Blood\\2.png", UriKind.Relative)))
+        {
+            _level = level;
+            switch (level)
+            {
+                case 0:
+                    this.Name = "blood_0";
+                    this.Texture = new BitmapImage(new Uri("Textures\\Objects\\Blood\\0.png", UriKind.Relative));
+                    break;
+                case 1:
+                    this.Name = "blood_1";
+                    this.Texture = new BitmapImage(new Uri("Textures\\Objects\\Blood\\1.png", UriKind.Relative));
+                    break;
+                case 2:
+                    this.Name = "blood_2";
+                    this.Texture = new BitmapImage(new Uri("Textures\\Objects\\Blood\\2.png", UriKind.Relative));
+                    break;
+            }
+        }
+    }
+
+    internal class Objects
+    {
+        public static Blood Blood(int level)
+        {
+            return new Blood(level);
+        }
+
+        public static Chest Chest()
+        {
+            return new Chest("Chest", new BitmapImage(new Uri("Textures\\Objects\\Furniture\\Chest.png", UriKind.Relative)));
+        }
+    }
 }

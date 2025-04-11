@@ -9,6 +9,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -16,5 +17,6 @@
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Grid.Column="0">You are dead</Label>
         <Button Grid.Row="1" Grid.Column="0" Width="150" Height="64" Click="Button_Click">Exit</Button>
+        <Button Grid.Row="1" Grid.Column="1" Width="150" Height="64" Click="Restart_Click">Restart</Button>
     </Grid>
 </Window>
