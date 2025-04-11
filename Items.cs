@@ -32,7 +32,7 @@ namespace Work1
         {
             _id = -1;
             _name = "null_item";
-            _texture = new BitmapImage(new Uri("Textures\\System\\NULL.png"));
+            _texture = new BitmapImage(new Uri("Textures\\System\\NULL.png", UriKind.Relative));
         }
 
         public Item(string name, int id, BitmapImage textures)

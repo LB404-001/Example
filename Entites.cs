@@ -67,7 +67,7 @@ namespace Work1
         {
             _name = "null_entity";
             _id = -1;
-            _texture = new BitmapImage(new Uri("F:\\Projects\\Work1\\Textures\\System\\NULL.png"));
+            _texture = new BitmapImage(new Uri("Textures\\System\\NULL.png", UriKind.Relative));
             _orientation = Orientations.North;
             _HP = 0;
             _position = new Point(0, 0);
@@ -91,7 +91,7 @@ namespace Work1
             this.HP -= damage;
             if (this.HP <= 0)
             {
-                this.Texture = new BitmapImage(new Uri(Defaults.NullTexturePath));
+                this.Texture = new BitmapImage(new Uri(Defaults.NullTexturePath, UriKind.Relative));
                 Engine.KillEntity(this);
             }
         }
@@ -122,7 +122,7 @@ namespace Work1
             this.HP -= damage;
             if (this.HP <= 0)
             {
-                this.Texture = new BitmapImage(new Uri(Defaults.NullTexturePath));
+                this.Texture = new BitmapImage(new Uri(Defaults.NullTexturePath, UriKind.Relative));
                 Engine.KillEntity(this);
             }
         }
@@ -352,7 +352,7 @@ namespace Work1
             //Engine._current_scene.World[this.Position.X][this.Position.Y].Object = a;
             if (this.HP <= 0)
             {
-                this.Texture = new BitmapImage(new Uri(Defaults.NullTexturePath));
+                this.Texture = new BitmapImage(new Uri(Defaults.NullTexturePath, UriKind.Relative));
                 Engine.IsGameOver = true;
             }
         }
@@ -397,7 +397,7 @@ namespace Work1
             }
         }
 
-        public Player(string name, Point position) : base(name, 0, new BitmapImage(new Uri("F:\\Projects\\Work1\\Textures\\Entities\\Player\\Player.png")), new Point(0, 0))
+        public Player(string name, Point position) : base(name, 0, new BitmapImage(new Uri("Textures\\Entities\\Player\\Player.png", UriKind.Relative)), new Point(0, 0))
         {
             this.Position = position;
             this.HP = 5;

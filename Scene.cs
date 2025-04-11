@@ -50,7 +50,7 @@ namespace Work1
                     Point position = new Point(i, j);
                     BitmapImage texture = new BitmapImage();
                     texture.BeginInit();
-                    texture.UriSource = new Uri(Defaults.GroundTexture);
+                    texture.UriSource = new Uri(Defaults.GroundTexture, UriKind.Relative);
                     texture.EndInit();
                     _world[i][j] = new Chunk(new Ground($"ground_{i*y+j}", texture), null!, null!, false, new Point(i, j));
 
@@ -69,7 +69,7 @@ namespace Work1
                 _world[0][i].Collision = true;
                 _world[y-1][i].Collision = true;
 
-                BitmapImage texture = new BitmapImage(new Uri(("F:\\Projects\\Work1\\Textures\\Objects\\Buildings\\Walls\\CBW.png")));
+                BitmapImage texture = new BitmapImage(new Uri(("Textures\\Objects\\Buildings\\Walls\\CBW.png"), UriKind.Relative));
                 StaticObject wall = new StaticObject($"wall_{0}:{i}", texture);
                 _world[0][i].Object = wall;
                 wall = new StaticObject($"wall_{y-1}:{i}", texture);
@@ -80,17 +80,17 @@ namespace Work1
                 _world[i][0].Collision = true;
                 _world[i][x - 1].Collision = true;
 
-                BitmapImage texture = new BitmapImage(new Uri(("F:\\Projects\\Work1\\Textures\\Objects\\Buildings\\Walls\\CBW.png")));
+                BitmapImage texture = new BitmapImage(new Uri(("Textures\\Objects\\Buildings\\Walls\\CBW.png"), UriKind.Relative));
                 StaticObject wall = new StaticObject($"wall_{i}:{0}", texture);
                 _world[i][0].Object = wall;
                 wall = new StaticObject($"wall_{i}:{x - 1}", texture);
                 _world[i][x-1].Object = wall;
             }
 
-            _world[5][5].Object = new Trap("trap1", new BitmapImage(new Uri("F:\\Projects\\Work1\\Textures\\Objects\\Furniture\\Chest.png")), 5);
-            _world[3][5].Entity = new Zombie("target", 10, new BitmapImage(new Uri("F:\\Projects\\Work1\\Textures\\Entities\\NPC\\target.png")), 100, 100, new Point(3,5));
-            _world[3][4].Object = new StaticObject($"wall", new BitmapImage(new Uri(("F:\\Projects\\Work1\\Textures\\Objects\\Buildings\\Walls\\CBW.png"))));
-            _world[1][2].Object = new StaticObject($"wall", new BitmapImage(new Uri(("F:\\Projects\\Work1\\Textures\\Objects\\Buildings\\Walls\\CBW.png"))));
+            _world[5][5].Object = new Trap("trap1", new BitmapImage(new Uri("Textures\\Objects\\Furniture\\Chest.png", UriKind.Relative)), 5);
+            _world[3][5].Entity = new Zombie("target", 10, new BitmapImage(new Uri(("Textures\\Objects\\Buildings\\Walls\\CBW.png"), UriKind.Relative)), 100, 100, new Point(3,5));
+            _world[3][4].Object = new StaticObject($"wall", new BitmapImage(new Uri(("Textures\\Objects\\Buildings\\Walls\\CBW.png"), UriKind.Relative)));
+            _world[1][2].Object = new StaticObject($"wall", new BitmapImage(new Uri(("Textures\\Objects\\Buildings\\Walls\\CBW.png"), UriKind.Relative)));
             _world[3][4].Collision = true;
             _entities.Add(_world[3][5].Entity);
 
